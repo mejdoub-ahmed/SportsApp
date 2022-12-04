@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import Home from "../Home/Home";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA05fVHSqrQW08aW81v77i8eC6U0TU4E88",
@@ -23,17 +29,32 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [passw, setPassw] = useState("");
   const [dataInput, setDataInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submitThis = (e) => {
+    setLoading(true);
     e.preventDefault();
     const info = { email: email, passw: passw };
     setDataInput([info]);
     createUserWithEmailAndPassword(auth, email, passw)
       .then((Credential) => {
+        setLoading(false);
         console.log("User Created", Credential.user);
+        return <Home />;
       })
       .catch((err) => console.log(err));
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, passw)
+      .then((res) => console.log("User LoggedIn", res.user))
+      .then((err) => console.log(err));
+  };
+
+  if (loading) {
+    return <ClipLoader color={"green"} loading={loading} size={300} />;
+  }
 
   return (
     <div>
