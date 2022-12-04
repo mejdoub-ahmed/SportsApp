@@ -9,3 +9,15 @@
   }
 }
 
+.welcome-banner {
+  text-align: center;
+  font-size: 50px;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+  line-height: 100px; 
+}
+
+.nav-box{
+  transform: translateY(-50%);
+}
