@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   getAllPosts,
   addPost,
-  getOnePost,
+  getPost,
   delPost,
   updatepost,
   updatelike,
@@ -12,14 +12,14 @@ const {
 
 router.get("/getall", getAllPosts); // get all posts
 
-router.get("/:categorie", getOnePost); // get all post by categorie
+router.get("/:categorie", getPost); // get all post by categorie
 
 router.post("/add", addPost); // add post
 
-router.delete("/:id", delPost); // delete post
+router.delete("/del/:id", delPost); // delete post
 
-router.put("/:id", updatepost); // update post
+router.put("/update/:id", updatepost); // update post
 
-router.put("/:id", updatelike); // update like of post
+router.put("/updatelike/:id", updatelike); // update like of post !!
 
 module.exports = router;

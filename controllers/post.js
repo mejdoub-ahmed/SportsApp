@@ -9,7 +9,7 @@ module.exports = {
   },
 
   //method to get all post by categorie.
-  getOnePost: function (req, res) {
+  getPost: function (req, res) {
     posts.getOne(function (err, results) {
       if (err) res.status(500).send(err);
       else res.json(results);
@@ -28,8 +28,8 @@ module.exports = {
       req.body.postcontent,
       req.body.postimage,
       req.body.categorie,
-      0,
-      req.body.user_iduser
+      req.body.user_iduser,
+      0
     );
   },
 
@@ -48,6 +48,8 @@ module.exports = {
       },
       req.body.posttitle,
       req.body.postcontent,
+      req.body.postimage,
+      req.body.categorie,
       req.params.id
     );
   },

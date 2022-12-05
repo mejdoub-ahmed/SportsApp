@@ -17,8 +17,17 @@ module.exports = {
     });
   },
 
-  update: function (callback, bio, gender, categorie, imageuser, id) {
-    const sql = `UPDATE user SET bio = '${bio}' gender = '${gender}',categorie = '${categorie}',imageuser = '${imageuser}'  WHERE id ="${id}"`;
+  update: function (
+    callback,
+    mail,
+    username,
+    bio,
+    gender,
+    categorie,
+    imageuser,
+    iduser
+  ) {
+    const sql = `UPDATE user SET  mail ="${mail}" ,username= "${username}",bio = "${bio}", gender = "${gender}",categorie = "${categorie}",imageuser = "${imageuser}"  WHERE iduser ="${iduser}"`;
     connection.query(sql, function (error, results) {
       callback(error, results);
     });

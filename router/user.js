@@ -11,6 +11,6 @@ router.get("/getall", getAllUsers);
 
 router.post("/add", addUser);
 
-router.put("/put/:id", updateUser);
+router.put("/put/:iduser", updateUser);
 
 module.exports = router;

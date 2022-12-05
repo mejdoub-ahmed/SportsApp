@@ -26,11 +26,13 @@ module.exports = {
         if (err) res.status(500).send(err);
         else res.json(results);
       },
+      req.body.mail,
+      req.body.username,
       req.body.bio,
       req.body.gender,
       req.body.categorie,
       req.body.imageuser,
-      req.params.id
+      req.params.iduser
     );
   },
 };
