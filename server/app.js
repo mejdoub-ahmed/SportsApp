@@ -9,10 +9,10 @@ app.use(cors());
 
 const postsRoute = require("../router/post.js");
 const usersRoute = require("../router/user.js");
-// const commentsRoute = require("./routes/comments");
+const commentsRoute = require("../router/comment.js");
 
 app.use("/api/posts", postsRoute);
 app.use("/api/users", usersRoute);
-// app.use("/api/comments", commentsRoute);
+app.use("/api/comments", commentsRoute);
 
 module.exports = app;

@@ -34,7 +34,7 @@ module.exports = {
   },
 
   del: function (callback, idpost) {
-    const sql = ` DELETE FROM post WHERE idpost="${idpost}"`;
+    const sql = `DELETE FROM post WHERE idpost="${idpost}"`;
     connection.query(sql, function (error, results) {
       callback(error, results);
     });
