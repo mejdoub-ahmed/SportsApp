@@ -127,6 +127,14 @@ const Login = () => {
                   Sign in
                 </button>
 
+                <button
+                  onClick={handleLogin}
+                  className="btn btn-primary btn-lg btn-block"
+                  style={{ backgroundColor: "#77DD77", borderColor: "#77DD77" }}
+                >
+                  Login
+                </button>
+
                 <div className="divider d-flex align-items-center my-4">
                   <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                 </div>
